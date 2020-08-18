@@ -1,11 +1,14 @@
-var Car = /** @class */ (function () {
-    function Car() {
+class Car {
+    //one constructor(implementation)
+    constructor(name, speed, gears) {
+        this.name = name;
+        this.speed = speed;
+        this.gears = gears;
     }
-    Car.prototype.applyBrakes = function (decrement) {
+    applyBrakes(decrement) {
         this.speed -= decrement;
-    };
-    return Car;
-}());
+    }
+}
 var car1 = new Car();
 console.log("car1: ", car1);
 car1.name = "Audi";
@@ -14,3 +17,6 @@ car1.gears = 6;
 console.log("car1: ", car1);
 car1.applyBrakes(100);
 console.log("car1: ", car1);
+var car2 = new Car("BMW", 230, 6);
+console.log("car2: ", car2);
+//var car3: Car = new Car("BMW", 230)
