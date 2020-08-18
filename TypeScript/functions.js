@@ -1,5 +1,7 @@
+
+// implicit args==> this, arguments
 function sum(x, y){
-    console.log("sum...", arguments);
+    console.log("sum...", arguments, this);
 }
 // function sum(){
 //     console.log("sum no args...");
