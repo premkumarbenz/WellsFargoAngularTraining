@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import {HelloComponent} from './hello/hello.component';
 import {DataBindingComponent} from './data-binding/data-binding.component';
 
+import {CustomersModule} from './customers/customers.module';
+
 @NgModule({
   declarations: [
     AppComponent, HelloComponent, DataBindingComponent
   ],
   imports: [
-    BrowserModule, FormsModule
+    BrowserModule, FormsModule, CustomersModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,11 +10,13 @@ export class DataBindingComponent{
     user: {firstName: string, lastName: string};
     count: number;
     message: string;
+    showPanel: boolean;
 
     constructor(){
         this.user = {firstName: "Anil", lastName: "Joseph"}
         this.count = 10;
-        this.message = "Hello"
+        this.message = "Hello";
+        this.showPanel = false;
     }
 
     inc(msg, evt){

@@ -1,0 +1,19 @@
+<h3>List Customers</h3>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Customer ID</th>
+            <th>Name</th>
+            <th>Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of data">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.location}}</td>
+        </tr>
+    </tbody>
+</table>

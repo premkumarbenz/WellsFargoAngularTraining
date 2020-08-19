@@ -16,16 +16,27 @@
     Count: {{count}}
 </div>
 
-<div>
+<p>
+    Show Event Binding: <input type="checkbox" [(ngModel)]="showPanel"/>
+</p>
+<div [hidden]="!showPanel">
     <h4>Event Binding</h4>
     <button (click)="inc('hello', $event)">Increment Count</button>
 </div>
 
-<div>
+<p>
+    Show 2-way Binding: <input type="checkbox" #cb [ngModel]/>{{cb.checked}}
+</p>
+
+<div [hidden]="!cb.checked">
     <h4>2-Way Binding</h4>
 
-    Message: <input [(ngModel)]="message"/>
-    
+    Message: <input [(ngModel)]="message" #msg/>{{msg.value}}
+
     <br/>
     Message: {{message}}
+    <br/>
+
+    Count: <input type="number" [value]="count" (input)="count = $event.target.value"/>
+
 </div>
