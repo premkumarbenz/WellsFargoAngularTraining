@@ -1,0 +1,17 @@
+<h4>Edit Customer {{current.id}}</h4>
+
+<fieldset>
+    <p>Name</p>
+    <div>
+        <input [(ngModel)]="temp.name"/>
+    </div>
+
+    <p>Location</p>
+    <div>
+        <input [(ngModel)]="temp.location"/>
+    </div>
+    <div>
+        <button (click)="save()">Save</button>
+        <button (click)="cancel()">Cancel</button>
+    </div>
+</fieldset>

@@ -1,5 +1,11 @@
 <h3>List Customers</h3>
 
+<div>
+    <input type="search" placeholder="Search" [(ngModel)]="searchKey"/>
+    <p [hidden]="!searchKey">
+        Searching for {{searchKey}}
+    </p>
+</div>
 
 <table>
     <thead>
@@ -8,15 +14,21 @@
             <th>Customer ID</th>
             <th>Name</th>
             <th>Location</th>
+            <th>Actions</th>
         </tr>
     </thead>
+
+    
     <tbody>
-        <tr *ngFor="let item of data; index as i; even as even; odd as odd" 
+        <tr *ngFor="let item of data | custFilter : searchKey; index as i; even as even; odd as odd" 
                     [ngClass]="{oddCls: odd, evenCls: even}">
             <td>{{i}}</td>
             <td>{{item.id}}</td>
-            <td>{{item.name}}</td>
+            <td>{{item.name | uppercase}}</td>
             <td>{{item.location}}</td>
+            <td>
+                <button (click)="edit(item)">Edit</button>
+            </td>
         </tr>
         <tr>
             <td>
@@ -34,9 +46,15 @@
         </tr>
     </tbody>
 </table>
-<div>
+<!-- <div>
     {{ customer | json}}
-</div>
+</div> -->
 
+<div *ngIf="selectedCustomer">
+    <app-edit-customer 
+        [current]="selectedCustomer"
+        (saved)="editUpdate($event)"
+        (cancelled)="editCancelled($event)"></app-edit-customer>
+</div>
 
 
