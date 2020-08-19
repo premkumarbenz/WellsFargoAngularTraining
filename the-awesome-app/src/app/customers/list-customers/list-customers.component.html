@@ -4,16 +4,39 @@
 <table>
     <thead>
         <tr>
+            <th>Index</th>
             <th>Customer ID</th>
             <th>Name</th>
             <th>Location</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of data">
+        <tr *ngFor="let item of data; index as i; even as even; odd as odd" 
+                    [ngClass]="{oddCls: odd, evenCls: even}">
+            <td>{{i}}</td>
             <td>{{item.id}}</td>
             <td>{{item.name}}</td>
             <td>{{item.location}}</td>
         </tr>
+        <tr>
+            <td>
+                <button (click)="save()">Save</button>
+            </td>
+            <td>
+                <input type="number" placeholder="ID" [(ngModel)]="customer.id"/>
+            </td>
+            <td>
+                <input placeholder="Name" [(ngModel)]="customer.name"/>
+            </td>
+            <td>
+                <input placeholder="Location" [(ngModel)]="customer.location"/>
+            </td>
+        </tr>
     </tbody>
 </table>
+<div>
+    {{ customer | json}}
+</div>
+
+
+
