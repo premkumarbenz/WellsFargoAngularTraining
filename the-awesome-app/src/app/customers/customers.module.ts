@@ -7,12 +7,18 @@ import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import { CustFilterPipe } from './cust-filter.pipe';
 import {DataService} from './data.service';
 import {IDataService} from './idata-service';
+import {RouterModule, Routes} from '@angular/router';
+import { DetailsComponent } from './details/details.component';
 
+const routes: Routes = [
+  {path: "customers", component: ListCustomersComponent},
+  {path: "customers/:id", component: DetailsComponent}
+]
 
 @NgModule({
-  declarations: [ListCustomersComponent, EditCustomerComponent, CustFilterPipe],
+  declarations: [ListCustomersComponent, EditCustomerComponent, CustFilterPipe, DetailsComponent],
   imports: [
-    CommonModule, HttpClientModule, FormsModule
+    CommonModule, HttpClientModule, FormsModule, RouterModule.forChild(routes)
   ],
   exports: [ListCustomersComponent],
   providers: [{provide: IDataService, useClass: DataService}]

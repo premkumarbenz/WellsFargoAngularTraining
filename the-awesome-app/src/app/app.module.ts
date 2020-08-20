@@ -8,13 +8,24 @@ import {DataBindingComponent} from './data-binding/data-binding.component';
 import {CustomersModule} from './customers/customers.module';
 import { SearchComponent } from './search/search.component';
 import { HttpClientModule } from '@angular/common/http';
+import {RouterModule, Routes} from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import {AuthGuardService} from './guards/auth-guard.service';
+
+const routes: Routes = [
+  {path: "", component: HelloComponent},
+  {path: "binding", component: DataBindingComponent, canActivate: [AuthGuardService]},
+  {path: "search", component: SearchComponent, canActivate: [AuthGuardService]},
+  {path: "login", component: LoginComponent}
+]
 
 @NgModule({
   declarations: [
-    AppComponent, HelloComponent, DataBindingComponent, SearchComponent
+    AppComponent, HelloComponent, DataBindingComponent, SearchComponent, LoginComponent
   ],
   imports: [
-    BrowserModule, FormsModule, CustomersModule, ReactiveFormsModule, HttpClientModule
+    BrowserModule, FormsModule, CustomersModule, 
+      ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
