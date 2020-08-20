@@ -9,6 +9,7 @@ import {DataService} from './data.service';
 import {IDataService} from './idata-service';
 import {RouterModule, Routes} from '@angular/router';
 import { DetailsComponent } from './details/details.component';
+import {TableModule} from 'primeng/table';
 
 const routes: Routes = [
   {path: "customers", component: ListCustomersComponent},
@@ -18,7 +19,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [ListCustomersComponent, EditCustomerComponent, CustFilterPipe, DetailsComponent],
   imports: [
-    CommonModule, HttpClientModule, FormsModule, RouterModule.forChild(routes)
+    CommonModule, HttpClientModule, FormsModule, RouterModule.forChild(routes), TableModule
   ],
   exports: [ListCustomersComponent],
   providers: [{provide: IDataService, useClass: DataService}]

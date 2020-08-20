@@ -24,7 +24,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/nova/theme.css",
+              "node_modules/primeng/resources/primeng.min.css"
             ],
             "scripts": []
           },
@@ -119,6 +122,47 @@
           }
         }
       }
-    }},
+    },
+    "the-awesome-lib": {
+      "projectType": "library",
+      "root": "projects/the-awesome-lib",
+      "sourceRoot": "projects/the-awesome-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/the-awesome-lib/tsconfig.lib.json",
+            "project": "projects/the-awesome-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/the-awesome-lib/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/the-awesome-lib/src/test.ts",
+            "tsConfig": "projects/the-awesome-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/the-awesome-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/the-awesome-lib/tsconfig.lib.json",
+              "projects/the-awesome-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
   "defaultProject": "the-awesome-app"
 }
