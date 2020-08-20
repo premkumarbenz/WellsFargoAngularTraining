@@ -6,7 +6,8 @@ import {IDataService} from '../idata-service';
 @Component({
   selector: 'app-list-customers',
   templateUrl: './list-customers.component.html',
-  styleUrls: ['./list-customers.component.css']
+  styleUrls: ['./list-customers.component.css'],
+  //providers: []
 })
 export class ListCustomersComponent implements OnInit {
 

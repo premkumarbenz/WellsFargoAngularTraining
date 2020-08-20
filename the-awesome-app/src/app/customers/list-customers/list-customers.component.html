@@ -18,7 +18,7 @@
         </tr>
     </thead>
 
-    
+
     <tbody>
         <tr *ngFor="let item of data | custFilter : searchKey; index as i; even as even; odd as odd" 
                     [ngClass]="{oddCls: odd, evenCls: even}">
@@ -56,5 +56,8 @@
         (saved)="editUpdate($event)"
         (cancelled)="editCancelled($event)"></app-edit-customer>
 </div>
+
+
+<!-- <input type="text" [value]="cust.name" (change)="save()"/> -->
 
 
