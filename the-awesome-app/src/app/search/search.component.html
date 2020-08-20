@@ -3,3 +3,15 @@
 <div [formGroup]="searchFormGroup">
     <input type="search" formControlName="search"/>
 </div>
+
+<!-- <div *ngFor="let item of results">
+    <p>
+        {{item}}
+    </p>
+</div> -->
+
+<div *ngFor="let item of observableResults | async ">
+    <p>
+        {{item}}
+    </p>
+</div>
